@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  /* background-color: black;*/
 }
 
 .App-logo {
@@ -35,4 +36,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.head{
+  color: blue;
+}
+
+.book-container{
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart{
+  color: blue;
 }

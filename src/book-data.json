@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Slaughterhouse Five",
+        "author": "Kurt Vonnegut",
+        "genre": "Science fiction",
+        "stars": 4.09,
+        "pages": 275
+    },
+    {
+        "title": "Norwegian Wood",
+        "author": "Haruki Murakami",
+        "genre": "Literary fiction",
+        "stars": 4.03,
+        "pages": 388
+    },
+    {
+        "title": "The Metamorphosis",
+        "author": "Franz Kafka",
+        "genre": "Absurdist fiction",
+        "stars": 3.84,
+        "pages": 201
+    }
+  ]
