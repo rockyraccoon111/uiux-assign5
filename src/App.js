@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from "react";
 import bookData from "./book-data.json"
 import BookItem from "./BookItem.js"
+// import AddRemove from "./AddRemove.js"
 
 function App() {
   const [cartItems, setCartItems] = useState(new Set()) //new Set()
@@ -11,7 +12,6 @@ function App() {
     const cartCpy = new Set(cartItems);
     cartCpy.add(item);
     setCartItems(cartCpy);
-    //setPressedText("Remove")
   }
 
   function calculateTotal(){
@@ -22,16 +22,16 @@ function App() {
     return total
   }
 
-  // const removeFromCart = index => {
-  //   const cartCpyArray = [...Array.from(cartItems)];
-  //   cartCpyArray.splice(index, 1)
+  const removeFromCart = index => {
+    const cartCpyArray = [...Array.from(cartItems)];
+    cartCpyArray.splice(index, 1)
 
-  //   setCartItems(new Set(cartCpyArray))
-  // }
+    setCartItems(new Set(cartCpyArray))
+  }
   
   const [typesGenre, setTypesGenre] = useState(new Set());
 
-  function selectFilterType(item, event=true) {
+  function selectFilterTypeGenre(item, event=true) {
     const typesGenreCpy = new Set(typesGenre);
     typesGenreCpy.add(item);
 
@@ -42,7 +42,7 @@ function App() {
     setTypesGenre(typesGenreCpy);
   };  
 
-  const matchesFilterType = item => {
+  const matchesFilterTypeGenre = item => {
     if(typesGenre.size === 0) {
       return true
     }
@@ -53,7 +53,7 @@ function App() {
   //-------------------------
   const [typesLength, setTypesLength] = useState(new Set());
 
-  function selectFilterType2(item, event=true) {
+  function selectFilterTypeLength(item, event=true) {
     const typesLengthCpy = new Set(typesLength);
     typesLengthCpy.add(item);
 
@@ -64,7 +64,7 @@ function App() {
     setTypesLength(typesLengthCpy);
   };  
 
-  const matchesFilterType2 = item => {
+  const matchesFilterTypeLength = item => {
     if(typesLength.size === 0) {
       return true
     }
@@ -82,7 +82,7 @@ function App() {
     return typesLength.has(itemLength)
   }
 
-  const filteredData = bookData.filter(matchesFilterType).filter(matchesFilterType2) //.filter(matchesFilterType2)
+  const filteredData = bookData.filter(matchesFilterTypeGenre).filter(matchesFilterTypeLength) //.filter(matchesFilterType2)
   const sortedFilteredData = [...filteredData].sort((a, b) => b.stars - a.stars);
 
   return (
@@ -96,28 +96,28 @@ function App() {
           <input
             name="lit-fi"
             type="checkbox"
-            onChange={(event) => selectFilterType("Literary fiction", event) } />
+            onChange={(event) => selectFilterTypeGenre("Literary fiction", event) } />
         </label>
         <label className='filter'>
           Science fiction:
           <input
             name="sci-fi"
             type="checkbox"
-            onChange={(event) => selectFilterType("Science fiction", event) } />
+            onChange={(event) => selectFilterTypeGenre("Science fiction", event) } />
         </label>
         <label className='filter'>
           Memoirs and biographies:
           <input
             name="mem-bi"
             type="checkbox"
-            onChange={(event) => selectFilterType("Memoirs and biographies", event) } />
+            onChange={(event) => selectFilterTypeGenre("Memoirs and biographies", event) } />
         </label>
         <label className='filter'>
           Poetry:
           <input
             name="poe"
             type="checkbox"
-            onChange={(event) => selectFilterType("Poetry", event) } />
+            onChange={(event) => selectFilterTypeGenre("Poetry", event) } />
         </label>
       </div>
 
@@ -128,21 +128,21 @@ function App() {
           <input
             name="s"
             type="checkbox"
-            onChange={(event) => selectFilterType2("short", event) } />
+            onChange={(event) => selectFilterTypeLength("short", event) } />
         </label>
         <label className='filter'>
           Medium, 201-400 pages:
           <input
             name="m"
             type="checkbox"
-            onChange={(event) => selectFilterType2("med", event) } />
+            onChange={(event) => selectFilterTypeLength("med", event) } />
         </label>
         <label className='filter'>
           Long, 401+ pages:
           <input
             name="l"
             type="checkbox"
-            onChange={(event) => selectFilterType2("long", event) } />
+            onChange={(event) => selectFilterTypeLength("long", event) } />
         </label>
       </div>
 
@@ -153,13 +153,14 @@ function App() {
           <input
             name="rating-sort"
             type="checkbox"
-            onChange={(event) => selectFilterType2("sortCommand", event) } />
+            onChange={(event) => selectFilterTypeLength("sortCommand", event) } />
         </label>
       </div>
 
       <div className="cart">
         <h2>Cart</h2>
-        {Array.from(cartItems).map((item, index) => (<p>{item.title}</p>))}
+        {Array.from(cartItems).map((item, index) => (<p>{item.title}</p>))
+        }
         <h2>You have {calculateTotal()} pages left to read!</h2>
       </div>
 

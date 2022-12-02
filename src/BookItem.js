@@ -1,4 +1,5 @@
 import "./BookItem.css"
+import AddRemove from "./AddRemove";
 
 function BookItem(props){
     return (
@@ -9,9 +10,10 @@ function BookItem(props){
             <p>Genre: {props.item.genre}</p>
             <p>Rating: {props.item.stars}</p>
             <p>Page Count: {props.item.pages}</p>
-            <button onClick={() => { props.addToCart(props.item) }} disabled={props.cartItems.has(props.item)}>Add to cart</button>
+            <AddRemove/>
         </div>
     )
 }
+// <button onClick={() => { props.addToCart(props.item) }} disabled={props.cartItems.has(props.item)}>Add to cart</button>
 
 export default BookItem;
