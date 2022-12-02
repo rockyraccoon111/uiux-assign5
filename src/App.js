@@ -179,10 +179,9 @@ function App() {
         <h2>You have {calculateTotal()} pages left to read!</h2>
       </div>
 
-      <h2 className="choice-head">All books</h2>
       <div className="book-container">
         {filteredData.map(
-          (item, index) => (<BookItem item={item} addToCart={addToCart} removeFromCart={removeFromCart} cartItems={cartItems}/>)
+          (item, index) => (<BookItem item={item} addToCart={addToCart} removeFromCart={removeFromCart}/>)
         )}
       </div>
 
