@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/uiux-assign5/static/css/main.14631a89.css",
-    "main.js": "/uiux-assign5/static/js/main.4631164f.js",
+    "main.js": "/uiux-assign5/static/js/main.038f3684.js",
     "index.html": "/uiux-assign5/index.html",
     "main.14631a89.css.map": "/uiux-assign5/static/css/main.14631a89.css.map",
-    "main.4631164f.js.map": "/uiux-assign5/static/js/main.4631164f.js.map"
+    "main.038f3684.js.map": "/uiux-assign5/static/js/main.038f3684.js.map"
   },
   "entrypoints": [
     "static/css/main.14631a89.css",
-    "static/js/main.4631164f.js"
+    "static/js/main.038f3684.js"
   ]
 }
