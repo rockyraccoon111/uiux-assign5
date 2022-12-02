@@ -3,17 +3,6 @@
   /* background-color: black;*/
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -42,9 +31,24 @@
   color: blue;
 }
 
+.choice-head{
+  display: flex;
+  justify-content: flex-start;
+  color: green;
+}
+.genre-filter{
+  display: flex;
+  justify-content: center;
+}
+
 .book-container{
   display: flex;
   justify-content: space-around;
+}
+
+
+.filter{
+  margin-right: 50px;
 }
 
 .cart{

@@ -1,12 +1,14 @@
 [
     {
+        "image": "images/download.jpg",
         "title": "Slaughterhouse Five",
         "author": "Kurt Vonnegut",
         "genre": "Science fiction",
-        "stars": 4.09,
-        "pages": 275
+        "stars": 3.5,
+        "pages": 100
     },
     {
+        "image": "images/download.jpg",
         "title": "Norwegian Wood",
         "author": "Haruki Murakami",
         "genre": "Literary fiction",
@@ -14,10 +16,19 @@
         "pages": 388
     },
     {
-        "title": "The Metamorphosis",
-        "author": "Franz Kafka",
-        "genre": "Absurdist fiction",
+        "image": "images/download.jpg",
+        "title": "Steve Jobs",
+        "author": "Walter Isaacson",
+        "genre": "Memoirs and biographies",
         "stars": 3.84,
         "pages": 201
+    },
+    {
+        "image": "images/download.jpg",
+        "title": "Ariel",
+        "author": "Sylvia Plath",
+        "genre": "Poetry",
+        "stars": 5.0,
+        "pages": 480
     }
   ]

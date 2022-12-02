@@ -1,41 +1,183 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState } from "react";
 import bookData from "./book-data.json"
 import BookItem from "./BookItem.js"
 
 function App() {
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState(new Set()) //new Set()
+  //const [pressedText, setPressedText] = useState("Add")
 
   function addToCart(item){
-    setCartItems([...cartItems, item])
+    const cartCpy = new Set(cartItems);
+    cartCpy.add(item);
+    setCartItems(cartCpy);
+    //setPressedText("Remove")
   }
 
   function calculateTotal(){
     let total = 0
-    for (let i=0; i < cartItems.length; i++){
-      total += cartItems[i].pages
+    for (let i=0; i < Array.from(cartItems).length; i++){
+      total += Array.from(cartItems)[i].pages
     }
     return total
   }
+
+  // const removeFromCart = index => {
+  //   const cartCpyArray = [...Array.from(cartItems)];
+  //   cartCpyArray.splice(index, 1)
+
+  //   setCartItems(new Set(cartCpyArray))
+  // }
+  
+  const [typesGenre, setTypesGenre] = useState(new Set());
+
+  function selectFilterType(item, event=true) {
+    const typesGenreCpy = new Set(typesGenre);
+    typesGenreCpy.add(item);
+
+    if (event.target.checked == false){
+      typesGenreCpy.delete(item);
+    }
+
+    setTypesGenre(typesGenreCpy);
+  };  
+
+  const matchesFilterType = item => {
+    if(typesGenre.size === 0) {
+      return true
+    }
+    
+    return typesGenre.has(item.genre)
+  }
+
+  //-------------------------
+  const [typesLength, setTypesLength] = useState(new Set());
+
+  function selectFilterType2(item, event=true) {
+    const typesLengthCpy = new Set(typesLength);
+    typesLengthCpy.add(item);
+
+    if (event.target.checked == false){
+      typesLengthCpy.delete(item);
+    }
+
+    setTypesLength(typesLengthCpy);
+  };  
+
+  const matchesFilterType2 = item => {
+    if(typesLength.size === 0) {
+      return true
+    }
+    
+    let itemLength = null;
+
+    if (item.pages < 200){
+      itemLength = "short"
+    } else if (item.pages < 400){
+      itemLength = "med"
+    } else{
+      itemLength = "long"
+    }
+
+    return typesLength.has(itemLength)
+  }
+
+  const filteredData = bookData.filter(matchesFilterType).filter(matchesFilterType2) //.filter(matchesFilterType2)
+  const sortedFilteredData = [...filteredData].sort((a, b) => b.stars - a.stars);
 
   return (
     <div className="App">
       <h1 className="head">My Books</h1>
 
-      <div className="book-container">
-        {bookData.map((item, index) => (
-          <BookItem item={item} addToCart={addToCart} />
-        ))}
+      <h2 className="choice-head">Filter by genre</h2>
+      <div className="genre-filter">
+        <label className='filter'>
+          Literary fiction:
+          <input
+            name="lit-fi"
+            type="checkbox"
+            onChange={(event) => selectFilterType("Literary fiction", event) } />
+        </label>
+        <label className='filter'>
+          Science fiction:
+          <input
+            name="sci-fi"
+            type="checkbox"
+            onChange={(event) => selectFilterType("Science fiction", event) } />
+        </label>
+        <label className='filter'>
+          Memoirs and biographies:
+          <input
+            name="mem-bi"
+            type="checkbox"
+            onChange={(event) => selectFilterType("Memoirs and biographies", event) } />
+        </label>
+        <label className='filter'>
+          Poetry:
+          <input
+            name="poe"
+            type="checkbox"
+            onChange={(event) => selectFilterType("Poetry", event) } />
+        </label>
+      </div>
+
+      <h2 className="choice-head">Filter by length</h2>
+      <div className="length-filter">
+        <label className='filter'>
+          Short, 0-200 pages:
+          <input
+            name="s"
+            type="checkbox"
+            onChange={(event) => selectFilterType2("short", event) } />
+        </label>
+        <label className='filter'>
+          Medium, 201-400 pages:
+          <input
+            name="m"
+            type="checkbox"
+            onChange={(event) => selectFilterType2("med", event) } />
+        </label>
+        <label className='filter'>
+          Long, 401+ pages:
+          <input
+            name="l"
+            type="checkbox"
+            onChange={(event) => selectFilterType2("long", event) } />
+        </label>
+      </div>
+
+      <h2 className="choice-head">Sort by star rating</h2>
+      <div className="length-filter">
+        <label className='filter'>
+          Star rating sort:
+          <input
+            name="rating-sort"
+            type="checkbox"
+            onChange={(event) => selectFilterType2("sortCommand", event) } />
+        </label>
       </div>
 
       <div className="cart">
         <h2>Cart</h2>
-        {cartItems.map((item, index) => (<p>{item.title}</p>))}
-        <h2>Total: {calculateTotal()}</h2>
+        {Array.from(cartItems).map((item, index) => (<p>{item.title}</p>))}
+        <h2>You have {calculateTotal()} pages left to read!</h2>
       </div>
+
+      <h2 className="choice-head">All books</h2>
+      <div className="book-container">
+        {filteredData.map(
+          (item, index) => (<BookItem item={item} addToCart={addToCart} cartItems={cartItems}/>)
+        )}
+      </div>
+
     </div>
   )
 }
+
+/*
+{filteredData.map(
+          (item, index) => (<BookItem item={item} addToCart={addToCart} cartItems={cartItems}/>)
+        )}
+*/
 
 export default App;
