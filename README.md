@@ -1,7 +1,7 @@
 # Development
 
 ### Link to Deployed Website
-If you used the stencil code, this is `https://<your GitHub username>.github.io/<name of your repository>`
+https://rockyraccoon111.github.io/uiux-assign5/
 
 ### Goal and Value of the Application
 The goal of my application is to allow users to easily browse and add/remove book items. The user can sort by star ratings and filter by book genre/length to find books that are most appealing to them. They can also easily add and remove book items to their cart and see the number of pages they have left to read.
