@@ -2,11 +2,10 @@ import './App.css';
 import { useState } from "react";
 import bookData from "./book-data.json"
 import BookItem from "./BookItem.js"
-// import AddRemove from "./AddRemove.js"
+import { useEffect } from "react";
 
 function App() {
-  const [cartItems, setCartItems] = useState(new Set()) //new Set()
-  //const [pressedText, setPressedText] = useState("Add")
+  const [cartItems, setCartItems] = useState(new Set())
 
   function addToCart(item){
     const cartCpy = new Set(cartItems);
@@ -29,6 +28,8 @@ function App() {
     setCartItems(new Set(cartCpyArray))
   }
   
+  //-----Genre filter-----
+
   const [typesGenre, setTypesGenre] = useState(new Set());
 
   function selectFilterTypeGenre(item, event=true) {
@@ -50,7 +51,7 @@ function App() {
     return typesGenre.has(item.genre)
   }
 
-  //-------------------------
+  //-----Length filter-----
   const [typesLength, setTypesLength] = useState(new Set());
 
   function selectFilterTypeLength(item, event=true) {
@@ -82,12 +83,26 @@ function App() {
     return typesLength.has(itemLength)
   }
 
-  const filteredData = bookData.filter(matchesFilterTypeGenre).filter(matchesFilterTypeLength) //.filter(matchesFilterType2)
-  const sortedFilteredData = [...filteredData].sort((a, b) => b.stars - a.stars);
+  //-----Rating sort-----
 
+  const [filteredData, setData] = useState(bookData.filter(matchesFilterTypeGenre).filter(matchesFilterTypeLength));
+
+  function sortCheck(item, event=true) {
+    if (event.target.checked){
+      setData([...filteredData].sort((a, b) => b.stars - a.stars))
+    } else {
+      setData(bookData.filter(matchesFilterTypeGenre).filter(matchesFilterTypeLength))
+    }
+  };
+
+  useEffect(() => {
+    setData(bookData.filter(matchesFilterTypeGenre).filter(matchesFilterTypeLength))
+  }, [typesGenre, typesLength]);
+
+  //----------
   return (
     <div className="App">
-      <h1 className="head">My Books</h1>
+      <h1 className="head">Jeff's Books</h1>
 
       <h2 className="choice-head">Filter by genre</h2>
       <div className="genre-filter">
@@ -153,7 +168,7 @@ function App() {
           <input
             name="rating-sort"
             type="checkbox"
-            onChange={(event) => selectFilterTypeLength("sortCommand", event) } />
+            onChange={(event) => sortCheck("sortCommand", event) } />
         </label>
       </div>
 
@@ -167,18 +182,12 @@ function App() {
       <h2 className="choice-head">All books</h2>
       <div className="book-container">
         {filteredData.map(
-          (item, index) => (<BookItem item={item} addToCart={addToCart} cartItems={cartItems}/>)
+          (item, index) => (<BookItem item={item} addToCart={addToCart} removeFromCart={removeFromCart} cartItems={cartItems}/>)
         )}
       </div>
 
     </div>
   )
 }
-
-/*
-{filteredData.map(
-          (item, index) => (<BookItem item={item} addToCart={addToCart} cartItems={cartItems}/>)
-        )}
-*/
 
 export default App;

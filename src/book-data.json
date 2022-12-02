@@ -1,34 +1,122 @@
 [
     {
-        "image": "images/download.jpg",
+        "image": "images/sl5.jpg",
         "title": "Slaughterhouse Five",
         "author": "Kurt Vonnegut",
         "genre": "Science fiction",
-        "stars": 3.5,
-        "pages": 100
+        "stars": 4.09,
+        "pages": 275
     },
     {
-        "image": "images/download.jpg",
+        "image": "images/blue.jpg",
+        "title": "Blue Nights",
+        "author": "Joan Didion",
+        "genre": "Memoirs and Biographies",
+        "stars": 3.89,
+        "pages": 188
+    },
+    {
+        "image": "images/little.jpg",
+        "title": "Little Women",
+        "author": "Louisa May Alcott",
+        "genre": "Literary fiction",
+        "stars": 4.13,
+        "pages": 449
+    },
+    {
+        "image": "images/lighthouse.jpg",
+        "title": "To the Lighthouse",
+        "author": "Virginia Woolf",
+        "genre": "Literary fiction",
+        "stars": 3.79,
+        "pages": 242
+    },
+    {
+        "image": "images/ariel.jpg",
+        "title": "Ariel",
+        "author": "Sylvia Plath",
+        "genre": "Poetry",
+        "stars": 4.2,
+        "pages": 105
+    },
+    {
+        "image": "images/lotf.jpg",
+        "title": "Lord of the Flies",
+        "author": "William Golding",
+        "genre": "Literary fiction",
+        "stars": 3.69,
+        "pages": 182
+    },
+    {
+        "image": "images/leo.jpg",
+        "title": "Leonardo da Vinci",
+        "author": "Walter Isaacson",
+        "genre": "Memoirs and biographies",
+        "stars": 4.19,
+        "pages": 624
+    },
+    {
+        "image": "images/stevej.jpg",
+        "title": "Steve Jobs",
+        "author": "Walter Isaacson",
+        "genre": "Memoirs and biographies",
+        "stars": 4.16,
+        "pages": 630
+    },
+    {
+        "image": "images/carried.jpg",
+        "title": "The Things They Carried",
+        "author": "Tim O'Brien",
+        "genre": "Literary fiction",
+        "stars": 4.14,
+        "pages": 233
+    },
+    {
+        "image": "images/acid.jpg",
+        "title": "Acid for the Children",
+        "author": "Flea",
+        "genre": "Memoirs and biographies",
+        "stars": 4.07,
+        "pages": 379
+    },
+    {
+        "image": "images/pabner.jpg",
+        "title": "The Poetry of Pablo Neruda",
+        "author": "Pablo Neruda",
+        "genre": "Poetry",
+        "stars": 4.44,
+        "pages": 1044
+    },
+    {
+        "image": "images/belljar.jpg",
+        "title": "The Bell Jar",
+        "author": "Sylvia Plath",
+        "genre": "Literary fiction",
+        "stars": 4.04,
+        "pages": 244
+    },
+    {
+        "image": "images/norwood.jpg",
         "title": "Norwegian Wood",
         "author": "Haruki Murakami",
         "genre": "Literary fiction",
         "stars": 4.03,
-        "pages": 388
+        "pages": 296
     },
     {
-        "image": "images/download.jpg",
-        "title": "Steve Jobs",
-        "author": "Walter Isaacson",
-        "genre": "Memoirs and biographies",
-        "stars": 3.84,
-        "pages": 201
+        "image": "images/1984.jpg",
+        "title": "1984",
+        "author": "George Orwell",
+        "genre": "Science fiction",
+        "stars": 4.19,
+        "pages": 298
     },
     {
-        "image": "images/download.jpg",
-        "title": "Ariel",
-        "author": "Sylvia Plath",
-        "genre": "Poetry",
-        "stars": 5.0,
-        "pages": 480
+        "image": "images/talk.jpg",
+        "title": "What We Talk About When We Talk About Love",
+        "author": "Raymond Carver",
+        "genre": "Literary fiction",
+        "stars": 4.09,
+        "pages": 159
     }
   ]

@@ -1,29 +1,25 @@
 import { useState } from 'react'
-import App from "./App.js"
 
 function AddRemove(props){
 
     const [arState, setARState] = useState(true)
 
-    function handleClick(props){
-        setARState(arState => !arState);
+    function handleClick(){
+        if (arState){
+            props.addToCart(props.item)
+        } else {
+            props.removeFromCart(props.item)
+        }
         
-        // if (arState){
-        //     props.addToCart(props.item)
-        // }
-        // props.removeFromCart(props.item)
+        setARState(arState => !arState);
     }
 
     const changeWords = props => {
         if (arState){
-            //props.addToCart(props.item)
             return "Add"
         }
-        //props.addToCart(props.item)
         return "Remove"
     }
-    //onClick={() => { props.addToCart(props.item) }} disabled={props.cartItems.has(props.item)}
-
 
     return (
         <button 
